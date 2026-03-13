@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate , } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <nav className="bg-black text-white p-4 flex justify-between items-center">
 
@@ -65,6 +66,7 @@ const Navbar = () => {
             Signup
           </NavLink>
         </li>
+        <li className="hover:text-gray-300" onClick={()=> navigate(-1)}>back</li>
 
       </ul>
 

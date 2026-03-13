@@ -9,9 +9,9 @@ export const getProductById = (id) => {
 };
 
 export const getCategories = () => {
-  return client("/products/categories");
+  return client("/categories");
 };
 
-export const getProductsByCategory = (category) => {
-  return client(`/products/category/${category}`);
+export const getProductsByCategory = (categoryId) => {
+  return client(`/products/?categoryId=${categoryId}`);
 };
