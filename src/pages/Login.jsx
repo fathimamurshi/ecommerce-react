@@ -21,7 +21,8 @@ const Login = () => {
     if(data.access_token){
       localStorage.setItem('token',data.access_token);
 
-      alert('success')
+      localStorage.setItem('userName',email);
+
       navigate('/',{replace: true})
     }else{
       alert(" Invalid email or password");

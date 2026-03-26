@@ -7,6 +7,11 @@ import Products from "./pages/Product";
 import { Outlet, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import NotFound from "./pages/notfound";
+import Profile from "./pages/Profile";
+import ProductDetails from "./pages/ProductDetail";
+import ProtectedRoute from "./components/layout/ProtectedRoute";
+import Cart from "./pages/Cart";
 
 function App() {
   const MainLayout = () => (<><Navbar /><Outlet /><Footer /> </>);
@@ -28,13 +33,22 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/profile" element={ <ProtectedRoute> <Profile /> </ProtectedRoute> } />
+          <Route path="/cart" element={<Cart />} />
         </Route>
-        <Route element={<AuthLayout/>}>
+
+
+       <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
 
-      </Routes>
+        <Route path="*" element={<NotFound />} />
+
+
+
+      </Routes >
 
     </>
   );
